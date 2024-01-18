@@ -4,14 +4,17 @@
 
 def minOperations(n):
     """Determing minimum operations"""
-    min_operations = 0
+    operations = 0
+    summation = 1
+    carrier = 0
 
-    if n <= 1:
-        return min_operations
+    while summation < n:
+        if n % summation == 0:  # Copy when summation is a multiple of n
+            carrier = summation
+            summation *= 2
+            operations += 1
+        else:
+            summation += carrier
+        operations += 1  # Always paste
 
-    for i in range(2, n + 1):
-        while n % i == 0:
-            min_operations += i
-            n /= i
-
-    return min_operations
+    return operations
