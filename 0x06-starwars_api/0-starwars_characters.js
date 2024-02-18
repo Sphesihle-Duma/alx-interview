@@ -15,4 +15,3 @@ const exactOrder = (actors, x) => {
     exactOrder(actors, x + 1);
   });
 };
-
